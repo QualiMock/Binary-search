@@ -29,12 +29,11 @@ int binary_search(int *arr, int num, int from, int to)  // recursive search algo
         else if(pivot == num)   // if pivot equals searching number
             return searcher;    // return it's position in array
         else
-            printf("There's no this number\n");
+            std::cout << "There's no number\n";
 
         binary_search(arr, num, from, to);  // if hasn't returned, searching in changed range 
     }
-    else
-        return searcher;
+    else return searcher;
 }
 
 int main(int argc, char *argv[])
@@ -70,20 +69,16 @@ int main(int argc, char *argv[])
             std::cout << "Your sorted array: ";
 
             for(int i = 0; i < size; i++)
-                printf("%d ", array[i]);
-            printf("\n");
+		std::cout << array[i] << " ";
+	    std::cout << std::endl;
 
             std::cout << "Enter required number: "; std::cin >> number;     // entering required number
-
             result = binary_search(array, number, array[0], size-1);    // start searching
-
-            printf("Your number is on %d position\n", result);
+	    std::cout << "Your number is on " << result << " position\n";
         }
-        else
-            std::cout << "Enter numbers next time\n";
+        else std::cout << "Enter numbers next time\n";
     }
-    else
-        std::cout << "Enter not less 1 element\n";
+    else std::cout << "Enter not less 1 element\n";
 
     return 0;
 }
